@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg " *ngIf="loggedIn()">
+  <div class="container-fluid">
+    <a class="navbar-brand"><img src="../assets/sun.gif" alt="" height="80px" width="80px"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item ms-5">
+          <a class="nav-link active" aria-current="page" routerLink={{path}}>Home</a>
+        </li>
+        <li class="nav-item ms-5">
+          <a class="nav-link" routerLink='/listCities'>Watch List</a>
+        </li>
+        
+        <li class="nav-item ms-5">
+          <a class="nav-link "></a>
+        </li>
+
+        <form class="d-flex nav-item" role="search" [formGroup]="search">
+          <input class="form-control me-2 ms-5" type="search" formControlName="cityControl" placeholder="city"
+            aria-label="Search">
+          <input class="form-control me-2 ms-5" type="search" formControlName="countryControl" placeholder="Country"
+            aria-label="Search">
+        </form>
+        <button class="btn btn-outline-dark" (click)="searchValue()">Search</button>
+        <button class="btn btn-outline-dark ms-2" (click)="logout()">LogOut</button>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- <login></login> -->
+<!-- <sing-up></sing-up> -->
+<router-outlet></router-outlet>

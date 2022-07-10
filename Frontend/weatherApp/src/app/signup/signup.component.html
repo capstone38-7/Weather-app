@@ -1,0 +1,83 @@
+<section class="vh-100 main">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card text-white signUpCard" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h4 class=" text-center mb-3">Registration</h4>
+                            <form [formGroup]="registerGroup" (ngSubmit)="onSubmit()">
+                                <div class="form-outline  mb-3">
+                                    <input type="text" formControlName="name" class="form-control form-control-lg" />
+                                    <label class="form-label">Your Name</label>
+                                    <span *ngIf="nameCtrl && nameCtrl.invalid && (nameCtrl.dirty || nameCtrl.touched)"
+                                        class=" text-danger">
+                                        <span *ngIf="nameCtrl.errors?.['required']">
+                                            Name is required.
+                                        </span>
+                                        <span *ngIf="nameCtrl.errors?.['minlength']">
+                                            Name must be min 2 length.
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="form-outline mb-3">
+                                    <input type="text" formControlName="password"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label">Password</label>
+
+                                    <span
+                                        *ngIf="passwordCtrl && passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)"
+                                        class=" text-danger">
+
+                                        <span *ngIf="passwordCtrl.errors?.['required']">
+                                            password is required.
+                                        </span>
+                                        <span *ngIf="passwordCtrl.errors?.['minlength']">
+                                            password must be min 8 length.
+                                        </span>
+                                        <span *ngIf="passwordCtrl.errors?.['maxlength']">
+                                            password must be max 12 length.
+                                        </span>
+                                    </span>
+
+                                </div>
+
+                                <div class="form-outline mb-3">
+                                    <input type="text" formControlName="currentCity"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label">Current Located City</label>
+
+                                    <span *ngIf="currentCityCtrl && currentCityCtrl.invalid && (currentCityCtrl.dirty || currentCityCtrl.touched)"
+                                        class=" text-danger">
+
+                                        <span *ngIf="currentCityCtrl.errors?.['required']">
+                                            city is required.
+                                        </span>
+                                        <span *ngIf="currentCityCtrl.errors?.['minlength']">
+                                            city must be min 2 length.
+                                        </span>
+
+
+                                    </span>
+
+                                </div>
+
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit"
+                                        class="btn btn-outline-light btn-block btn-lg gradient-custom-4 " [disabled]="registerGroup.invalid" >Register</button>
+                                </div>
+
+                                <p class="text-center text-white  mt-5 mb-0">Have already an account? <a
+                                        routerLink="/login" class="fw-bold text-white-50  "><u>Login here</u></a></p>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

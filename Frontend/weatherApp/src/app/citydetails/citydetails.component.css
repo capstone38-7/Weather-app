@@ -1,0 +1,28 @@
+.main{
+    height: 78vh;
+    padding: 0px;
+    border-radius: 25px;
+    background-color: azure;
+}
+
+.leftbar{
+    height: 75vh;
+    border-radius: 25px;
+    margin: 0;
+    float: left;
+}
+.rightdiv{
+    width: 72%;
+    border-radius: 25px;
+    height: 75vh;
+    float: left;
+    margin-left: 30px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.watchbtn{
+    margin-top: 30%;
+}

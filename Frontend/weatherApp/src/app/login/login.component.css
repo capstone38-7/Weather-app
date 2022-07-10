@@ -1,0 +1,8 @@
+.main{
+    background-image: url(../../assets/Wallpaper.jpg);
+    background-size: cover;
+    
+}
+.loginCard{
+    background-color: rgba(0, 0, 0, 0.6);
+}

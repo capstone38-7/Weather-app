@@ -1,0 +1,40 @@
+<div class="alert alert-danger m-3" role="alert" *ngIf="flag"> 
+    <div class="text-center">Weather Removed</div>
+</div>
+<div class="shadow-lg p-3 m-4 bg-body rounded" *ngFor="let cities of citiesWeather">
+    <div class="card  mb-3 border-dark">
+        <div class="card-header"> <b>Weather For Location</b></div>
+        <div class="card-body ">
+            <div class="card-title shadow-lg ">
+                <p>{{ cities.name}}</p>
+                <p><b> {{cities.weather.mainInfo}} </b></p>
+                <p>{{cities.temperature.temp}} °c</p>
+
+            </div>
+            <span class="card-text shadow">
+                <div class="m-4" style=" display:inline-block;">Temperature : {{cities.temperature.temp }} °c
+                </div>
+
+                <div class="m-4" style=" display:inline-block;">
+                    Feels Like : {{cities.temperature.feelsLike}} °c
+                </div>
+
+
+                <div class="m-4" style=" display:inline-block;">Max Temperature : {{cities.temperature.tempMax }} °c
+                </div>
+
+                <button class="btn " (click)="onDelete(cities.name,cities.country)"><img
+                        src="../../assets/icons8-remove-64.png" alt=""></button>
+
+            </span>
+        </div>
+    </div>
+</div>
+<div *ngIf="citiesWeather?.length ==0">
+    <div class="card text-center  m-5">
+        <div class="card-body ">
+            <p class=" text-center text-uppercase">there is no favourite weather you can add favourite</p>
+            <button (click)="goHome()" class="btn btn-primary">you can Add Weather</button>
+        </div>
+    </div>
+</div>

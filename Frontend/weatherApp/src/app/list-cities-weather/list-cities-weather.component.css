@@ -1,0 +1,21 @@
+.shadow-lg{
+    height: 250px;
+}
+.card-title{
+    width: 262px;
+    height: 140px;
+    float: left;
+    border-radius: 15px;
+    text-align: center;
+}
+
+button>img{
+    
+    width: 20px;
+    height: 25px;
+
+}
+.card-text{
+    width: 262px;
+    height: 140px;
+}

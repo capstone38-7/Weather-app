@@ -1,0 +1,77 @@
+<div class="alert alert-success m-2" role="alert" *ngIf="flag">
+  <div class="text-center">  Weather Added Successfully</div>
+</div>
+<div class="alert alert-success m-2" role="alert" *ngIf="alreadyflag">
+  <div class="text-center">  Weather Exists in Watch List</div>
+</div>
+<div class="shadow p-3 m-5 bg-body main" *ngIf="cityWeather">
+
+  <div class=" shadow-lg  col-sm-12 col-md-12 col-lg-3 leftbar" style="text-align:center ;">
+    <h3 >Today's Weather</h3>
+    <hr>
+    <div >
+          <h3> <b> {{cityWeather.weather.mainInfo}} </b> </h3>
+          <h1 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;" > {{cityWeather.temperature.temp}} °c </h1>
+          <h4>{{cityWeather.weather.description}}</h4>
+          <h3>{{ weekday | showWeekDay}}</h3>
+    </div>
+    <div>
+      <h5> <b> 🌏 {{ cityWeather.name}} </b></h5>
+    </div>
+
+    <div  class="watchbtn">
+          <a  ><button class="btn btn-primary" (click)="addWeatherToWatchListdb()" >Add To Watch List</button></a> 
+    </div>
+  </div>
+
+  <div class="shadow-lg p-3 bg-body col-sm-8 col-md-6 rightdiv">
+
+    <div class=" row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card shadow-lg">
+          <img src="../../assets/images.jpg" height="100px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Temperature</h5>
+
+            <ul class="card-text">
+              <li>Temperature : {{cityWeather.temperature.temp }} °c</li>
+              <li>Feels Like : {{cityWeather.temperature.feelsLike }} °c</li>
+              <li>Max Temperature : {{cityWeather.temperature.tempMax}} °c </li>
+              <li>Min Temperature : {{cityWeather.temperature.tempMin}} °c  </li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-lg">
+          <img src="../../assets/an-image-of-a-cute-cloud-blowing-wind-isolated-on-white-free-vector.jpg" height="150px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Visibility</h5>
+
+            <ul class="card-text">
+              <li>Visibility : {{cityWeather.visibility}} </li>
+              <li>Pressure : {{cityWeather.temperature.pressure }} <i class="fas fa-tire-pressure-warning"></i> </li>
+              <li>Humidity: {{cityWeather.temperature.humidity }} </li>
+
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-lg mt-2">
+          <div class="card-body">
+            <h5 class="card-title">Location</h5>
+            <ul class="card-text">
+              <li>Country: {{cityWeather.country}} </li>
+              <li>Latitude: {{cityWeather.coord.latitude}} </li>
+              <li>Longitude: {{cityWeather.coord.longitude}}</li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

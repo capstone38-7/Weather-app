@@ -1,0 +1,52 @@
+server:
+  port: 8580
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:userdb
+    username: tom
+    password: scooby
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: create
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+
+  cloud:
+    gateway:
+
+      default-filters:
+          - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+          corsConfigurations:
+            '[/**]':
+              #allowCredentials: true
+              allowedOrigins: "http://localhost:4200"
+              allowedHeaders: "*"
+              allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - OPTIONS
+
+      routes:
+        - id: service_watchList
+          uri: http://localhost:8585
+          predicates:
+            - Path=/WatchList/**
+          filters:
+            - AuthenticateFilterFactory
+
+  application:
+    name: userms
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: "http://localhost:9000/eureka"
